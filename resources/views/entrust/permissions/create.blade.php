@@ -1,10 +1,11 @@
 @extends('layouts.default')
-
+@section('contentheader_title')
+<i class='fa fa-group'></i> Permissions
+@endsection
 @section('content')
 
-<h2> <i class='fa fa-group'></i> Permissions</h2>
-<div class="widget">
-  <div class="widget-content padding">
+<div class="box">
+  <div class="box-body padding">
     <div class="row">
       <div class="col-md-12">
             <form action="{{ route('entrust-gui::permissions.store') }}" method="post" role="form">

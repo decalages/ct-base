@@ -12,9 +12,15 @@
     <link href="{{ asset('/css/AdminLTE.css') }}" rel="stylesheet" type="text/css" />
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
           page. However, you can choose any other skin. Make sure you
-          apply the skin class to the body tag so the changes take effect.
-    -->
+          apply the skin class to the body tag so the changes take effect. 
+ 
     <link href="{{ asset('/css/skins/skin-blue.css') }}" rel="stylesheet" type="text/css" />
+
+       -->
+       
+    <link href="{{ asset('/css/skins/_all-skins.min.css') }}" rel="stylesheet" type="text/css" />
+
+
     <!-- iCheck -->
     <link href="{{ asset('/plugins/iCheck/square/blue.css') }}" rel="stylesheet" type="text/css" />
 

@@ -101,13 +101,13 @@
 
 <div class="left side-menu">
     <div class="sidebar-inner slimscrollleft">
+
         @include('sidebars.menu')
         @if(Entrust::hasRole('admin'))
             @include('sidebars.admin')
         @endif
 
     </div>
-
 </div>
 <!-- Left Sidebar End -->
 
@@ -116,15 +116,9 @@
         <!-- Start right content -->
         <div class="content-page">
             <div class="content">
-
-
-
             <!-- ============================================================== -->
             <!-- Start Content here -->
             <!-- ============================================================== -->
-
-
-
                 @yield('content')
             <!-- ============================================================== -->
             <!-- End content here -->
