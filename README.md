@@ -1,7 +1,7 @@
-# laravel-embryon
+# lct-base
 Un embryon de site sous Laravel
 
-    git clone git@github.com:decalages/laravel-embryon.git .
+    git clone git@github.com:decalages/ct-base.git .
 
     composer install
 
