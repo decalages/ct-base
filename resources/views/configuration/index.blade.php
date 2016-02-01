@@ -1,9 +1,12 @@
 @extends('layouts.default')
+@section('contentheader_title')
+<i class="fa fa-cog"></i> <strong>Configuration</strong> du site !!
+@endsection
 
 @section('content')
-<h2><i class="fa fa-cog"></i> <strong>Configuration</strong> du site</h2>
-<div class="widget">
-    <div class="widget-content padding">
+
+<div class="box">
+    <div class="box-body padding">
         <div class="row">
             <div class="col-sm-12">
                 <div class="box-info full">
@@ -37,6 +40,11 @@
 
                                      <div class="form-group">
                                         {!! Form::label('color1','couleur de base',[])!!}
+                                        <div id="customWidget">
+                                            <div id="colorselector"><div style="background-color: #EFEFEF"></div></div>
+                                            <div id="colorpickerholder2">
+                                            </div>
+                                        </div>
                                         {!! Form::input('text','color1',(array_key_exists('color1', $config)) ? $config['color1'] : '',['class'=>'form-control','placeholder'=>'couleur de base', 'id'=>'color1'])!!}
                                       </div>
 
@@ -58,14 +66,22 @@
 @stop
 
 @section('css')
-<link href="/assets/admin/libs/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet" />
+<link href="/plugins/jquery-colorpicker/css/colorpicker.css" rel="stylesheet" />
 @endsection
 
 @section('scripts')
-<script src="/assets/admin/libs/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script src="/plugins/jquery-colorpicker/colorpicker.js"></script>
 <script>
 $(function(){
-    $('#color1').colorpicker();
+    $('#color1').hide();
+    $('#colorpickerholder2').ColorPicker({
+        flat: true,
+        color: '{!! Config::get('config.color1') !!}',
+        onChange: function (hsb, hex, rgb) {
+            $('#color1').val('#' + hex);
+        }
+    });
+
 });
 </script>
 @endsection

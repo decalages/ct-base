@@ -1,15 +1,12 @@
 @extends('layouts.app')
 @section('content')
-<div class="row">
-    <div class="col-md-8 col-md-offset-2">
+
         
             <div class="login-wrap animated flipInX">
-                <div class="panel-heading">Connexion</div>
                 <div class="login-block">
                     <form role="form" action="{!! URL::to('/login') !!}" method="post" class="login-form">
                         {!! csrf_field() !!}
                         <div class="form-group login-input{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <i class="fa fa-user overlay"></i>
                             <input class="form-control text-input" tabindex="1" placeholder="email" type="text" name="email" id="email">
                              @if ($errors->has('email'))
                                 <span class="help-block">
@@ -18,7 +15,6 @@
                             @endif
                         </div>
                         <div class="form-group login-input{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <i class="fa fa-key overlay"></i>
                             <input class="form-control text-input" tabindex="2" placeholder="mot de passe" type="password" name="password" id="password">
                             @if ($errors->has('password'))
                             <span class="help-block">
@@ -47,8 +43,9 @@
                 </div>
             </div>
 
-    </div>
-</div>
 
+@endsection
+
+@section('css')
 
 @endsection

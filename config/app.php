@@ -27,6 +27,7 @@ return [
     */
 
     'debug' => env('APP_DEBUG', true),
+    //'debug' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -163,7 +164,8 @@ return [
         Zizaco\Entrust\EntrustServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Appzcoder\CrudGenerator\CrudGeneratorServiceProvider::class,
-        UxWeb\SweetAlert\SweetAlertServiceProvider::class
+        UxWeb\SweetAlert\SweetAlertServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -213,7 +215,8 @@ return [
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
-        'Alert' => UxWeb\SweetAlert\SweetAlert::class
+        'Alert' => UxWeb\SweetAlert\SweetAlert::class,
+        'Image' => 'Intervention\Image\Facades\Image'
 
     ],
 

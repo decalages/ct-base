@@ -1,24 +1,29 @@
 <!-- Main Header -->
 <header class="main-header">
 
-    <!-- Logo -->
-    <a href="{{ url('/home') }}" class="logo">
-        <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>C</b>T</span>
-        <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg">{!! Config::get('config.application_title') !!}</span>
-    </a>
+   
 
     <!-- Header Navbar -->
     <nav class="navbar navbar-static-top" role="navigation">
         <!-- Sidebar toggle button-->
-        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <a href="#" class="sidebar-toggle toggle-mobile" data-toggle="offcanvas" role="button">
             <span class="sr-only">Toggle navigation</span>
         </a>
+         <!-- Logo -->
+    <a href="{{ url('/home') }}" class="logo">
+        
+        <span class="logo-lg">
+        @if(Config::get('config.logo'))
+        <img src="/images/{!! Config::get('config.logo') !!}" alt="{!! Config::get('config.application_title') !!}">
+        @else
+        {!! Config::get('config.application_title') !!}
+        @endif
+        </span>
+    </a>
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
-                <!-- Messages: style can be found in dropdown.less-->
+{{--                 <!-- Messages: style can be found in dropdown.less-->
                 <li class="dropdown messages-menu">
                     <!-- Menu toggle button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -49,9 +54,9 @@
                         </li>
                         <li class="footer"><a href="#">See All Messages</a></li>
                     </ul>
-                </li><!-- /.messages-menu -->
+                </li><!-- /.messages-menu --> --}}
 
-                <!-- Notifications Menu -->
+              {{--   <!-- Notifications Menu -->
                 <li class="dropdown notifications-menu">
                     <!-- Menu toggle button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -61,7 +66,7 @@
                     <ul class="dropdown-menu">
                         <li class="header">You have 10 notifications</li>
                         <li>
-                            <!-- Inner Menu: contains the notifications -->
+                            Inner Menu: contains the notifications
                             <ul class="menu">
                                 <li><!-- start notification -->
                                     <a href="#">
@@ -72,9 +77,9 @@
                         </li>
                         <li class="footer"><a href="#">View all</a></li>
                     </ul>
-                </li>
+                </li> --}}
                 <!-- Tasks Menu -->
-                <li class="dropdown tasks-menu">
+              {{--   <li class="dropdown tasks-menu">
                     <!-- Menu Toggle Button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-flag-o"></i>
@@ -107,58 +112,44 @@
                             <a href="#">View all tasks</a>
                         </li>
                     </ul>
-                </li>
-                @if (Auth::guest())
-                    <li><a href="{{ url('/login') }}">Login</a></li>
-                    <li><a href="{{ url('/register') }}">Register</a></li>
-                @else
+                </li> --}}
+
                     <!-- User Account Menu -->
                     <li class="dropdown user user-menu">
                         <!-- Menu Toggle Button -->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <!-- The user image in the navbar-->
-                            <img src="/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
+                            <img src="/images/profiles/{{Auth::user()->avatar}}" class="user-image" alt="Image"/>
                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                            <span class="hidden-xs">{{ Auth::user()->name }}</span>
+                            <span class="hidden-xs">{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</span>
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu dropdown-profile">
                             <!-- The user image in the menu -->
                             <li class="user-header">
-                                <img src="/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                                <img src="/images/profiles/{{Auth::user()->avatar}}" class="img-circle" alt="Image" />
                                 <p>
-                                    {{ Auth::user()->name }}
-                                    <small>Member since Nov. 2012</small>
+                                    {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}
+                                    {{-- <small>Member since Nov. 2012</small> --}}
                                 </p>
                             </li>
-                            <!-- Menu Body -->
-                            <li class="user-body">
-                                <div class="col-xs-4 text-center">
-                                    <a href="#">Followers</a>
-                                </div>
-                                <div class="col-xs-4 text-center">
-                                    <a href="#">Sales</a>
-                                </div>
-                                <div class="col-xs-4 text-center">
-                                    <a href="#">Friends</a>
-                                </div>
-                            </li>
-                            <!-- Menu Footer-->
+
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    <a href="/membres/profil" class="btn btn-default btn-flat">Profil</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="{{ url('/logout') }}" class="btn btn-default btn-flat">Sign out</a>
+                                    <a href="{{ url('/logout') }}" class="btn btn-default btn-flat">Déconnexion</a>
                                 </div>
                             </li>
                         </ul>
                     </li>
-                @endif
+                    <li class="dropdown topbar-profile"><a href="/logout" id="logout" style="cursor:pointer"><i class="fa fa-sign-out"></i> <span>Déconnexion</span></a></li>
 
-                <!-- Control Sidebar Toggle Button -->
+
+               {{--  <!-- Control Sidebar Toggle Button -->
                 <li>
                     <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </nav>

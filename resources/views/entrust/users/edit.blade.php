@@ -22,9 +22,11 @@
 
 @endsection
 @section('css')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.css">
+<link rel="stylesheet" href="/plugins/select2/select2.min.css">
+@endsection
 @section('scripts')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.js"></script>
+<script src="
+/plugins/select2/select2.full.min.js"></script>
 <script>
 (function() {
   $('select').select2();

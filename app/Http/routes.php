@@ -34,6 +34,10 @@ Route::group(['prefix' => 'membres', 'middleware' => 'web'], function() {
 
     # Admin Dashboard
     Route::get('dashboard', 'Admin\DashboardController@index');
+    Route::get('profil', 'Admin\MembreController@profil');
+    Route::put('profil', 'Admin\MembreController@update');
+    Route::post('profil/image', 'Admin\MembreController@postimage');
+    
 
 
 });

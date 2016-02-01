@@ -37,7 +37,6 @@ class ConfigurationController extends Controller
 
         $input = $request->all();
 
-
         if ($request->file('logo')) {
             $logo = Image::make($request->file('logo')->getRealPath());
             $extension = '.'.$request->file('logo')->guessClientExtension();
